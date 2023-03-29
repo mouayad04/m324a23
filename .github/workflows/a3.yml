@@ -1,0 +1,16 @@
+name: A3
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Install dependencies
+      run: yarn install
+    - name: Lint
+      run: yarn lint
+    - name: Test
+      run: yarn test
+    - name: Build
+      run: yarn build
