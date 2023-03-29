@@ -7,7 +7,7 @@
     "build": "rimraf ./build && tsc",
     "dev": "npx nodemon",
     "start": "node build/index.js",
-    "lint": "eslint . --ext .ts",
+    "lint": "eslint .",
     "test": "jest"
   },
   "husky": {
