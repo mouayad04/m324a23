@@ -22,3 +22,24 @@ jobs:
           context: .
           push: true
           tags: mouayad04/typescript-starter:1.0.0
+          - name: Check and Install kubectl
+        uses: azure/setup-kubectl@v3
+        with:
+          version: 'latest'
+        id: install
+
+      - name: Set Kubernetes Context
+        uses: azure/k8s-set-context@v3
+        with:
+          kubeconfig: ${{ secrets.KUBE_CONFIG }}
+
+      - name: Replace and Apply Kubernetes Manifests
+        uses: swdotcom/update-and-apply-kubernetes-configs@v1
+        with:
+          k8-config-file-paths: |
+            .k8s/namespace.yml
+            .k8s/nuxt-envs.yml
+            .k8s/deployment.yml
+            .k8s/service.yml
+            .k8s/ingress.yml
+          replacement-method: defined
