@@ -2,7 +2,7 @@ name: CD Pipeline
 on:
   pull_request:
     branches:
-      - main
+      - master
 jobs:
   Lint-Test-Build-Application:
     runs-on: self-hosted
