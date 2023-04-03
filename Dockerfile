@@ -1,21 +1,16 @@
-FROM node:14
+FROM node:18-slim
 
 WORKDIR /app
 
 COPY package*.json ./
+RUN yarn install
 
-RUN npm install --force
+COPY . .
 
-COPY . /app/
-
-ENV NODE_ENV=production
-
-RUN npm run lint
-
-RUN npm run test
-
-RUN npm run build
+RUN yarn lint
+RUN yarn test
+RUN yarn build
 
 EXPOSE 3000
 
-CMD [ "npm", "start" ]
+CMD [ "yarn", "start" ]
