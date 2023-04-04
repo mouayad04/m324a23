@@ -37,9 +37,9 @@ jobs:
         uses: swdotcom/update-and-apply-kubernetes-configs@v1
         with:
           k8-config-file-paths: |
-            .k8s/namespace.yml
-            .k8s/nuxt-envs.yml
-            .k8s/deployment.yml
-            .k8s/service.yml
-            .k8s/ingress.yml
+            .k8s/00_namespace.yml
+            .k8s/01_nuxt-envs.yml
+            .k8s/02_deployment.yml
+            .k8s/03_service.yml
+            .k8s/04_ingress.yml
           replacement-method: defined
