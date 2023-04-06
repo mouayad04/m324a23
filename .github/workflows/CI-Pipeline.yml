@@ -17,10 +17,10 @@ jobs:
         uses: docker/build-push-action@v4.0.0
         with:
           context: .
-          tags: mouayad04/m324:1.0.0
+          tags: mouayad04/typescript-starter:1.0.0
           build-args: |
             NODE_ENV=production
           if: success()
 
       - name: ✅ Verify Docker image
-        run: docker run --rm mouayad04/m324:1.0.0 npm run test
+        run: docker run --rm mouayad04/typescript-starter:1.0.0 npm run test
